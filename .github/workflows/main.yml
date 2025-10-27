@@ -1,0 +1,30 @@
+name: CI Maven Build and Test # Nom qui apparaîtra dans l'onglet Actions
+
+on:
+  push:
+    branches: [ "main", "master" ] # Déclenche le pipeline à chaque 'push' sur ces branches
+  pull_request:
+    branches: [ "main", "master" ] # Déclenche le pipeline pour les Pull Requests
+
+jobs:
+  build:
+    # Utilisation d'une machine virtuelle Linux pour l'exécution
+    runs-on: ubuntu-latest
+
+    steps:
+    # Étape 1: Cloner le code du dépôt (une étape essentielle)
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Étape 2: Configurer l'environnement Java
+    - name: Set up JDK 17 # MODIFIEZ '17' si votre projet utilise une autre version de Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17' 
+        distribution: 'temurin'
+        cache: 'maven' # Active le cache Maven pour accélérer les prochaines exécutions
+
+    # Étape 3: Construire le projet et exécuter les tests
+    - name: Build with Maven and run tests
+      # La commande demandée par l'énoncé
+      run: mvn clean verify
