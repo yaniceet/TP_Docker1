@@ -1,21 +1,32 @@
 name: CI devops 2025
+
 on:
-  #to begin you want to launch this job in main and develop
   push:
-    branches: #TODO 
+    branches: [ "main", "master" ] # A compléter
   pull_request:
+    branches: [ "main", "master" ] # A compléter
 
 jobs:
-  test-backend: 
-    runs-on: ubuntu-24.04
+  test-backend:
+    runs-on: ubuntu-24.04 # Version plus récente que 'ubuntu-latest'
+
     steps:
-     #checkout your github code using actions/checkout@v4
-      - uses: actions/checkout@v4
+    - name: Checkout your github code using actions/checkout@v4
+      uses: actions/checkout@v4
 
-     #do the same with another action (actions/setup-java@v4) that enable to setup jdk 21
-      - name: Set up JDK 21
-        #TODO
+    # Configuration du JDK (remplace le deuxième #TODO et les lignes suivantes)
+    - name: Set up JDK 17 
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17' # Choisissez la version de votre application
+        distribution: 'temurin'
+        cache: 'maven'
+        # AJOUTER CECI SEULEMENT SI LE POM.XML N'EST PAS À LA RACINE :
+        # settings-path: './VRAI_DOSSIER/pom.xml' 
 
-     #finally build your app with the latest command
-      - name: Build and test with Maven
-        run: #TODO
+    # Commande de construction et test (remplace le dernier #TODO)
+    - name: Build and test with Maven
+      # COMMANDE À COMPLETER :
+      run: mvn clean verify 
+      # OU (si le pom.xml est dans un sous-dossier) :
+      # run: mvn clean verify -f VRAI_DOSSIER/pom.xml
