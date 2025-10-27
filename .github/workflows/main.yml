@@ -2,9 +2,8 @@ name: CI devops 2025
 
 on:
   push:
-    branches: [ "main", "master" ] # A compléter
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ "main", "master" ] # A compléter
 
 jobs:
   test-backend:
@@ -17,10 +16,10 @@ jobs:
    # ... (votre code existant)
 
     # Étape 2: Configurer l'environnement Java
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
-        java-version: '17' 
+        java-version: '21' 
         distribution: 'temurin'
         cache: 'maven'
         # MODIFICATION : Utilisation du chemin simple-api
