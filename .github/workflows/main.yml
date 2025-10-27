@@ -24,7 +24,7 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
         # MODIFICATION : Utilisation du chemin simple-api
-        settings-path: './simple-api/pom.xml' 
+        settings-path: './BackendAPI/pom.xml' 
 
     # Étape 3: Construire le projet et exécuter les tests
     - name: Build with Maven and run tests
