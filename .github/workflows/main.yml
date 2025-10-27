@@ -21,7 +21,6 @@ jobs:
       with:
         java-version: '21' 
         distribution: 'temurin'
-        cache: 'maven'
         # MODIFICATION : Utilisation du chemin simple-api
 
     # Étape 3: Construire le projet et exécuter les tests
