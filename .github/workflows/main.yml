@@ -29,4 +29,4 @@ jobs:
     # Étape 3: Construire le projet et exécuter les tests
     - name: Build with Maven and run tests
       # MODIFICATION : Utilisation de l'option -f avec le chemin simple-api
-      run: mvn clean verify -f simple-api/pom.xml
+      run: mvn clean verify -f BackendAPI/pom.xml
