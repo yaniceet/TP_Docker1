@@ -1,6 +1,9 @@
 # TP Docker
 ## Partie 1 Database
 ### Question 1-1: Cela nous évite d’écrire des mots de passe visible dans l’image et permettre de changer la configuration à l’exécution sans reconstruire l’image 
+### Question 1-2: Nous avons besoin d'un volume Docker attaché à notre conteneur PostgreSQL pour garantir la persistance des données. Les données de cette base de données sont stockées sur le système de fichiers du serveur hôte distant.
+### Question 1-3: Vu qu'on utilise une image de base de données comme PostgreSQL, il est plus facile d'utiliser directement l'image officielle du Docker Hub avec des commandes docker run ou docker-compose, au lieu que de créer un Dockerfile personnalisé.
+
 # TP partie 02
 ### Question 2-1: Les Testcontainers sont une bibliothèque Java faite pour faciliter les Tests d'Intégration en fournissant des dépendances de services courantes comme les bases de données sous forme de conteneurs Docker jetables.
 ### Question 2-2: On les utilise pour protéger les identifiants comme le nom d'utilisateur et le mot de passe Docker Hub (DOCKER_USERNAME et DOCKER_PASSWORD), ils sont chiffrés et ne sont jamais exposés en clair dans le code du workflow (main.yml) ou dans les logs d'exécution publics de GitHub Actions.
