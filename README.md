@@ -13,11 +13,8 @@
 ### Question 2-2: On les utilise pour protéger les identifiants comme le nom d'utilisateur et le mot de passe Docker Hub (DOCKER_USERNAME et DOCKER_PASSWORD), ils sont chiffrés et ne sont jamais exposés en clair dans le code du workflow (main.yml) ou dans les logs d'exécution publics de GitHub Actions.
 ### Question 2-3: needs: est essentiel car il définit l'ordre d'exécution entre les différentes tâches du pipeline. Nous utilisons needs: build-and-test-backend pour garantir que la tâche de construction et de publication de l'image Docker se lance seulement si la tâche d'Intégration Continue a réussi (est passé au vert). Cela empêche de gaspiller des ressources et d'exposer publiquement un risque, en construisant et en poussant une image Docker qui contiendrait du code qui ne compilera pas ou qui aura des tests échoués.
 ### Question 2-4: On push les images Docker pour les stocker dans un registre distant et centralisé afin qu'elles puissent être récupérées et utilisées par d'autres systèmes pour le déploiement.
-### Question 2-5:
 # TP partie 3
 ## Facts
 ### Question 3-1: L'inventaire est la principale configuration d'Ansible. Il définit quels hôtes Ansible doit gérer et comment il doit s'y connecter. Les commandes de base sont des commandes simples exécutées une seule fois directement depuis la ligne de commande, sans utiliser de Playbook. Elles sont pratiques pour des tâches rapides et des vérifications.
-### Question 3-2:
-### Question 3-3:
-### Question 3-4:
-
+### Question 3-2: L'objectif du playbook est de définir sur quels serveurs, les tâches doivent être exécutées et quels rôles (ensembles de tâches), elles doivent être appliqués.
+### Question 3-4: Cela n'est pas sur de déployer automatiquement chaque image qui est simplement construite et poussée vers un dépôt. Pour garantir la sécurité et la stabilité de notre système en production, il faut ajouter des étapes de validation et des contrôles d'accès.
